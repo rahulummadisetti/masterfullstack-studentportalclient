@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+    <div class="card m-5">
+        <div class="card-header">{{title}}</div>
+        <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onRegister()" novalidate>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name">Name</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="name" aria-label="name" aria-describedby="name" formControlName="name">
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="email">Email</span>
+                    </div>
+                    <input type="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="email" formControlName="email">
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="password">Password</span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="password" formControlName="password">
+                </div>
+                <div class="input-group mb-4">
+                <div id="profession">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="admin" class="form-check-input" value="admin" formControlName="profession">
+                        <label class="form-check-label" for="male"> Admin</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="faculty" class="form-check-input" value="faculty" formControlName="profession" >
+                        <label class="form-check-label" for="female">Faculty</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="student" class="form-check-input" value="student" formControlName="profession" > 
+                        <label class="form-check-label" for="others">Student</label>
+                    </div>
+                    </div>
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="department">Department</span>
+                    </div>
+                    <select formControlName="department" class="form-control">
+                        <option *ngFor="let class of _classRooms" [value]="class.classID">{{class.classID}}</option>
+                    </select>
+                </div>
+                
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="dob">Date of Birth</span>
+                    </div>
+                    <input type="date" class="form-control" placeholder="Date of Birth" aria-label="DOB" aria-describedby="DOB" 
+                                formControlName="DOB"> 
+                </div>
+                
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="doj">Date of Joining</span>
+                    </div>
+                    <input type="date" class="form-control" placeholder="Date of Joining" aria-label="DOJ" aria-describedby="DOJ" 
+                                formControlName="DOJ"> 
+                </div>
+
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="phone">phone</span>
+                    </div>
+                    <input type="phone" class="form-control" placeholder="phone" aria-label="phone" aria-describedby="phone" formControlName="phno">
+                </div>
+
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="address">Address</span>
+                    </div>
+                    <textarea type="text" class="form-control" placeholder="address" aria-label="address" aria-describedby="address" formControlName="Address"></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-default" type="reset">Reset</button>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    <button class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

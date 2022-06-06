@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+    <h1>Staff / Student details</h1>
+</div>
+<hr/>
+
+<div class="row">
+    <div class=" col-lg-2 col-md-4 col-sm-12 offset-lg-10 offset-md-8">
+        <button class="btn btn-primary w-100"> Add User</button>
+    </div>
+</div>
+
+<br/>
+<table datatable [dtOptions]="dtoptions"  class="row-border hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Profession</th>
+            <th>Department</th>
+            <th>Edit/Delete</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let user of _users" >
+            <td>{{ user.registrationID}}</td>
+            <td>{{ user.name}}</td>
+            <td>{{ user.profession}}</td>
+            <td>{{ user.department }}</td>
+            <td>
+                <input type="button" class="btn btn-primary" (click)="OnEdit(user)" value="Edit"/>
+                <input type="button" class="btn btn-warning" (click)="OnResetPassword(user)" value="Reset Password"/>
+                <input type="button" class="btn btn-danger" (click)="OnDelete(user)" value="Delete"/>
+            </td>
+        </tr>
+    </tbody>
+</table>

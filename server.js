@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static('./dist/masterfullstack-studentportalclient'));
 
 app.get('/*',(req,res)=>{
-    res.sendFile('index.html',{root:'dist/masterfullstack-studentportalclient'}),
+    res.sendFile('index.html',{root:'dist/masterfullstack-studentportalclient'})
 });
 
 app.listen(process.env.PORT || 8080);
